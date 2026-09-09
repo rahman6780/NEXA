@@ -172,3 +172,57 @@ button:active {
         padding: 0 17px;
     }
 }
+/* =========================
+   ABOUT NEXA
+========================= */
+
+.about-btn {
+    display: block;
+    margin: 14px auto 0;
+    padding: 10px 18px;
+    background: rgba(0, 229, 255, 0.08);
+    color: #00e5ff;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.about-btn:hover {
+    background: rgba(0, 229, 255, 0.15);
+}
+
+.about-box {
+    display: none;
+    margin-top: 15px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(5, 15, 25, 0.96);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.12);
+}
+
+.about-box.show {
+    display: block;
+}
+
+.about-box h2 {
+    color: #00e5ff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.about-box p {
+    margin: 8px 0;
+    color: #c9f8ff;
+    font-size: 14px;
+}
+
+.about-box strong {
+    color: #00e5ff;
+}
+
+#closeAbout {
+    margin-top: 12px;
+    padding: 9px 18px;
+}

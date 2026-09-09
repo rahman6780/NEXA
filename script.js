@@ -46,3 +46,18 @@ input.addEventListener("keydown", (event) => {
         askNexa();
     }
 });
+// =========================
+// ABOUT NEXA
+// =========================
+
+const aboutBtn = document.getElementById("aboutBtn");
+const aboutBox = document.getElementById("aboutBox");
+const closeAbout = document.getElementById("closeAbout");
+
+aboutBtn.addEventListener("click", () => {
+    aboutBox.classList.add("show");
+});
+
+closeAbout.addEventListener("click", () => {
+    aboutBox.classList.remove("show");
+});
