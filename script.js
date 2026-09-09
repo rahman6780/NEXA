@@ -9,8 +9,7 @@ function addMessage(text, type) {
     chat.appendChild(message);
     chat.scrollTop = chat.scrollHeight;
 }
-
-function askNexa() {
+async function askNexa() {
     const question = input.value.trim();
 
     if (!question) return;
@@ -18,27 +17,44 @@ function askNexa() {
     addMessage(question, "user");
     input.value = "";
 
-    const q = question.toLowerCase();
+    const thinking = document.createElement("div");
+    thinking.className = "message nexa-message thinking-message";
+    thinking.textContent = "NEXA sedang berpikir";
+    chat.appendChild(thinking);
+    chat.scrollTop = chat.scrollHeight;
 
-    let answer;
+    try {
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                question: question
+            })
+        });
 
-    if (q.includes("halo") || q.includes("hai")) {
-       answer = "Halo! 👋 Senang bertemu dengan Anda. Saya NEXA, siap membantu.";
-    } else if (q.includes("siapa kamu")) {
-        answer = "Gue NEXA, AI Assistant buatan Wak.";
-    } else if (q.includes("termux")) {
-        answer = "Termux adalah terminal Linux di Android. 🗿";
-    } else if (q.includes("nexa")) {
-        answer = "NEXA masih berkembang. Kita bikin pelan-pelan sampai makin canggih 🔥";
-    } else {
-        answer = "Gue belum punya jawaban untuk itu, Wak 🗿";
+        const data = await response.json();
+
+        thinking.remove();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Terjadi kesalahan.");
+        }
+
+        addMessage(data.answer, "nexa");
+
+    } catch (error) {
+        thinking.remove();
+
+        addMessage(
+            "Maaf, NEXA sedang mengalami gangguan. Silakan coba lagi.",
+            "nexa"
+        );
+
+        console.error("NEXA error:", error);
     }
-
-    setTimeout(() => {
-        addMessage(answer, "nexa");
-    }, 300);
 }
-
 send.addEventListener("click", askNexa);
 
 input.addEventListener("keydown", (event) => {
