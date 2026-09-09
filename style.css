@@ -226,3 +226,33 @@ button:active {
     margin-top: 12px;
     padding: 9px 18px;
 }
+
+/* =========================
+   CUSTOM BACKGROUND
+========================= */
+
+#customBox input[type="color"] {
+    width: 100%;
+    height: 45px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+#customBox input[type="file"] {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    color: #c9f8ff;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 10px;
+}
+
+#customBox button {
+    margin: 6px 3px;
+    padding: 10px 15px;
+}
+

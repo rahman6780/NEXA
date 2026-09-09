@@ -61,3 +61,71 @@ aboutBtn.addEventListener("click", () => {
 closeAbout.addEventListener("click", () => {
     aboutBox.classList.remove("show");
 });
+
+// =========================
+// CUSTOM BACKGROUND
+// =========================
+
+const customBtn = document.getElementById("customBtn");
+const customBox = document.getElementById("customBox");
+const closeCustom = document.getElementById("closeCustom");
+const bgColor = document.getElementById("bgColor");
+const bgImage = document.getElementById("bgImage");
+const resetBg = document.getElementById("resetBg");
+
+customBtn.addEventListener("click", () => {
+    customBox.classList.add("show");
+});
+
+closeCustom.addEventListener("click", () => {
+    customBox.classList.remove("show");
+});
+
+bgColor.addEventListener("input", () => {
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundColor = bgColor.value;
+
+    localStorage.setItem("nexaBgColor", bgColor.value);
+    localStorage.removeItem("nexaBgImage");
+});
+
+bgImage.addEventListener("change", () => {
+    const file = bgImage.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        document.body.style.backgroundImage = `url("${reader.result}")`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundAttachment = "fixed";
+
+        localStorage.setItem("nexaBgImage", reader.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+resetBg.addEventListener("click", () => {
+    localStorage.removeItem("nexaBgColor");
+    localStorage.removeItem("nexaBgImage");
+
+    document.body.style.backgroundColor = "";
+    document.body.style.backgroundImage = "";
+});
+
+const savedBgColor = localStorage.getItem("nexaBgColor");
+const savedBgImage = localStorage.getItem("nexaBgImage");
+
+if (savedBgImage) {
+    document.body.style.backgroundImage = `url("${savedBgImage}")`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+} else if (savedBgColor) {
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundColor = savedBgColor;
+    bgColor.value = savedBgColor;
+}
