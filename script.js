@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const input = document.getElementById("input");
 const send = document.getElementById("send");
 const chat = document.getElementById("chat");
@@ -287,3 +288,4 @@ if (bugBtn) {
             `mailto:meletes86@gmail.com?subject=${subject}&body=${body}`;
     });
 }
+});
