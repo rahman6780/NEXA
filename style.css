@@ -256,3 +256,34 @@ button:active {
     padding: 10px 15px;
 }
 
+
+/* =========================
+   BACKGROUND PRESETS
+========================= */
+
+.preset-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.preset-btn {
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: 12px;
+    background: rgba(0, 229, 255, 0.08);
+    color: #c9f8ff;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.preset-btn:hover {
+    background: rgba(0, 229, 255, 0.16);
+}
+
+@media (max-width: 400px) {
+    .preset-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
