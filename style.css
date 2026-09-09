@@ -366,3 +366,47 @@ header span::before {
 #send {
     min-width: 80px;
 }
+/* =========================
+   COSMIC NEXA
+========================= */
+
+body.cosmic-mode {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(40, 70, 150, 0.35), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(100, 40, 150, 0.25), transparent 30%),
+        radial-gradient(circle at 50% 0%, rgba(0, 180, 220, 0.12), transparent 35%),
+        #01030a;
+    background-attachment: fixed;
+}
+
+body.cosmic-mode::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.7;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1.5px);
+    background-size: 97px 97px, 151px 151px;
+    background-position: 10px 20px, 45px 70px;
+    animation: starDrift 35s linear infinite;
+}
+
+@keyframes starDrift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-97px);
+    }
+}
+
+body.cosmic-mode .app {
+    background: rgba(3, 8, 20, 0.78);
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow:
+        0 0 35px rgba(0, 229, 255, 0.1),
+        0 0 80px rgba(80, 60, 200, 0.08);
+}

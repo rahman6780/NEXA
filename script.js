@@ -164,3 +164,22 @@ const savedPreset = localStorage.getItem("nexaBgPreset");
 if (savedPreset && presets[savedPreset]) {
     document.body.style.backgroundImage = presets[savedPreset];
 }
+// =========================
+// COSMIC NEXA
+// =========================
+
+const cosmicButton = document.querySelector('[data-bg="cosmic"]');
+
+if (cosmicButton) {
+    cosmicButton.addEventListener("click", () => {
+        document.body.classList.add("cosmic-mode");
+
+        localStorage.setItem("nexaBgPreset", "cosmic");
+        localStorage.removeItem("nexaBgColor");
+        localStorage.removeItem("nexaBgImage");
+    });
+}
+
+if (localStorage.getItem("nexaBgPreset") === "cosmic") {
+    document.body.classList.add("cosmic-mode");
+}
