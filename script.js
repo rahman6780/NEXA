@@ -190,18 +190,13 @@ if (savedBgImage) {
     bgColor.value = savedBgColor;
 }
 
-// =========================
-// BACKGROUND PRESETS
+// ================BACKGROUND PRESETS
 // =========================
 
 const presetButtons = document.querySelectorAll(".preset-btn");
 
 const presets = {
-    space: "radial-gradient(circle at 20% 20%, #16213e 0%, #050b18 45%, #010205 100%)",
-    neon: "radial-gradient(circle at 80% 20%, #30105c 0%, #09051a 45%, #020208 100%)",
-    forest: "radial-gradient(circle at 50% 0%, #123b32 0%, #061713 45%, #020806 100%)",
-    sunset: "linear-gradient(135deg, #32152b 0%, #5b2920 45%, #08070c 100%)",
-    dark: "linear-gradient(135deg, #050505 0%, #020202 100%)"
+    space: "url('backgrounds/nexa_deep_space.png')"
 };
 
 presetButtons.forEach((button) => {
@@ -221,27 +216,20 @@ presetButtons.forEach((button) => {
 
 const savedPreset = localStorage.getItem("nexaBgPreset");
 
-if (savedPreset && presets[savedPreset]) {
-    document.body.style.backgroundImage = presets[savedPreset];
-}
-// =========================
-// COSMIC NEXA
-// =========================
+if (savedPreset === "space") {
+    document.body.style.backgroundImage =
+        "url('backgrounds/nexa_deep_space.png')";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+} else {
+    localStorage.setItem("nexaBgPreset", "space");
 
-const cosmicButton = document.querySelector('[data-bg="cosmic"]');
-
-if (cosmicButton) {
-    cosmicButton.addEventListener("click", () => {
-        document.body.classList.add("cosmic-mode");
-
-        localStorage.setItem("nexaBgPreset", "cosmic");
-        localStorage.removeItem("nexaBgColor");
-        localStorage.removeItem("nexaBgImage");
-    });
-}
-
-if (localStorage.getItem("nexaBgPreset") === "cosmic") {
-    document.body.classList.add("cosmic-mode");
+    document.body.style.backgroundImage =
+        "url('backgrounds/nexa_deep_space.png')";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
 }
 // =========================
 // NEW CHAT
