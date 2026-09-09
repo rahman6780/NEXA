@@ -367,19 +367,6 @@ header span::before {
     min-width: 80px;
 }
 
-/* =========================
-   NEXA DEEP SPACE
-========================= */
-
-body {
-    background-image: url("backgrounds/nexa_deep_space.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #020509;
-}
-
 /* Lapisan gelap agar UI tetap terbaca */
 body::before {
     content: "";
