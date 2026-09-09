@@ -6,6 +6,9 @@ export default {
             try {
                 const body = await request.json();
                 const question = body.question?.trim();
+                const history = Array.isArray(body.history)
+                    ? body.history
+                    : [];
 
                 if (!question) {
                     return Response.json(
@@ -14,20 +17,23 @@ export default {
                     );
                 }
 
+                const messages = [
+                    {
+                        role: "system",
+                        content:
+                            "Kamu adalah NEXA, AI Assistant yang sopan, ramah, jelas, dan membantu. Jawab dalam bahasa yang digunakan pengguna. Gunakan percakapan sebelumnya sebagai konteks agar pertanyaan lanjutan tetap nyambung."
+                    },
+                    ...history,
+                    {
+                        role: "user",
+                        content: question
+                    }
+                ];
+
                 const result = await env.AI.run(
                     "@cf/meta/llama-3.2-3b-instruct",
                     {
-                        messages: [
-                            {
-                                role: "system",
-                                content:
-                                    "Kamu adalah NEXA, AI Assistant yang sopan, ramah, jelas, dan membantu. Jawab dalam bahasa yang digunakan pengguna."
-                            },
-                            {
-                                role: "user",
-                                content: question
-                            }
-                        ]
+                        messages: messages
                     }
                 );
 

@@ -2,6 +2,14 @@ const input = document.getElementById("input");
 const send = document.getElementById("send");
 const chat = document.getElementById("chat");
 
+// =========================
+// NEXA CHAT SESSION
+// =========================
+
+let chatHistory = JSON.parse(
+    localStorage.getItem("nexaChatHistory") || "[]"
+);
+
 function addMessage(text, type) {
     const message = document.createElement("div");
     message.className = `message ${type}`;
@@ -9,6 +17,24 @@ function addMessage(text, type) {
     chat.appendChild(message);
     chat.scrollTop = chat.scrollHeight;
 }
+
+function saveChatHistory() {
+    localStorage.setItem(
+        "nexaChatHistory",
+        JSON.stringify(chatHistory)
+    );
+}
+
+function loadChatHistory() {
+    chatHistory.forEach((message) => {
+        if (message.role === "user") {
+            addMessage(message.content, "user");
+        } else if (message.role === "assistant") {
+            addMessage(message.content, "nexa");
+        }
+    });
+}
+
 async function askNexa() {
     const question = input.value.trim();
 
@@ -30,7 +56,8 @@ async function askNexa() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                question: question
+                question: question,
+                history: chatHistory
             })
         });
 
@@ -44,6 +71,19 @@ async function askNexa() {
 
         addMessage(data.answer, "nexa");
 
+        // Simpan percakapan
+        chatHistory.push({
+            role: "user",
+            content: question
+        });
+
+        chatHistory.push({
+            role: "assistant",
+            content: data.answer
+        });
+
+        saveChatHistory();
+
     } catch (error) {
         thinking.remove();
 
@@ -55,6 +95,7 @@ async function askNexa() {
         console.error("NEXA error:", error);
     }
 }
+
 send.addEventListener("click", askNexa);
 
 input.addEventListener("keydown", (event) => {
@@ -62,6 +103,9 @@ input.addEventListener("keydown", (event) => {
         askNexa();
     }
 });
+
+// Muat kembali chat saat halaman dibuka
+loadChatHistory();
 // =========================
 // ABOUT NEXA
 // =========================
