@@ -575,3 +575,36 @@ body.cosmic-mode .app::after {
         content: "...";
     }
 }
+/* =========================
+   FIX NEXA BUTTON CLICK
+========================= */
+
+.app,
+.nexa-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Semua kontrol NEXA harus berada di atas efek background */
+.app > *,
+.nexa-container > * {
+    position: relative;
+    z-index: 20;
+}
+
+/* Efek Cosmic tidak boleh menutupi tombol */
+body.cosmic-mode::before,
+body.cosmic-mode::after,
+body.cosmic-mode .app::before,
+body.cosmic-mode .app::after {
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Tombol harus benar-benar menerima sentuhan */
+button,
+input {
+    position: relative;
+    z-index: 30;
+    pointer-events: auto;
+}
