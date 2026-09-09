@@ -243,3 +243,59 @@ if (cosmicButton) {
 if (localStorage.getItem("nexaBgPreset") === "cosmic") {
     document.body.classList.add("cosmic-mode");
 }
+// =========================
+// NEW CHAT
+// =========================
+
+const newChatBtn = document.getElementById("newChatBtn");
+
+if (newChatBtn) {
+    newChatBtn.addEventListener("click", () => {
+        const confirmNewChat = confirm(
+            "Mulai chat baru? Percakapan saat ini akan dihapus."
+        );
+
+        if (!confirmNewChat) return;
+
+        localStorage.removeItem("nexaChatHistory");
+
+        chatHistory = [];
+
+        chat.innerHTML = `
+            <div class="message nexa">
+                Halo! 👋<br>
+                Selamat datang di NEXA. Ada yang bisa saya bantu hari ini?
+            </div>
+        `;
+    });
+}
+
+// =========================
+// LAPOR BUG
+// =========================
+
+const bugBtn = document.getElementById("bugBtn");
+
+if (bugBtn) {
+    bugBtn.addEventListener("click", () => {
+        const bug = prompt(
+            "Jelaskan bug yang kamu temukan di NEXA:"
+        );
+
+        if (!bug || !bug.trim()) return;
+
+        const subject = encodeURIComponent("Laporan Bug NEXA");
+
+        const body = encodeURIComponent(
+            "Halo Rahman,\n\n" +
+            "Saya menemukan bug di NEXA.\n\n" +
+            "Laporan bug:\n" +
+            bug.trim() +
+            "\n\n" +
+            "Terima kasih."
+        );
+
+        window.location.href =
+            `mailto:meletes86@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
