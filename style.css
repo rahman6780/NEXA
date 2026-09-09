@@ -608,3 +608,36 @@ input {
     z-index: 30;
     pointer-events: auto;
 }
+/* =========================
+   NEXA BUTTON FIX
+========================= */
+
+.about-btn,
+.preset-btn,
+#send,
+#closeCustom,
+#closeAbout,
+#resetBg {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.about-box {
+    position: relative;
+    z-index: 30;
+}
+
+.input-area {
+    position: relative;
+    z-index: 20;
+}
+
+body::before,
+body::after,
+body.cosmic-mode::before,
+body.cosmic-mode::after,
+body.cosmic-mode .app::before,
+body.cosmic-mode .app::after {
+    pointer-events: none;
+}

@@ -191,47 +191,20 @@ if (savedBgImage) {
     bgColor.value = savedBgColor;
 }
 
-// ================BACKGROUND PRESETS
+// =========================
+// NEXA DEEP SPACE BACKGROUND
 // =========================
 
-const presetButtons = document.querySelectorAll(".preset-btn");
+const deepSpaceBackground =
+    "url('backgrounds/nexa_deep_space.png')";
 
-const presets = {
-    space: "url('backgrounds/nexa_deep_space.png')"
-};
+document.body.style.backgroundImage = deepSpaceBackground;
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
+document.body.style.backgroundAttachment = "fixed";
 
-presetButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const preset = button.dataset.bg;
+localStorage.setItem("nexaBgPreset", "space");
 
-        if (!presets[preset]) return;
-
-        document.body.style.backgroundImage = presets[preset];
-        document.body.style.backgroundColor = "";
-
-        localStorage.setItem("nexaBgPreset", preset);
-        localStorage.removeItem("nexaBgColor");
-        localStorage.removeItem("nexaBgImage");
-    });
-});
-
-const savedPreset = localStorage.getItem("nexaBgPreset");
-
-if (savedPreset === "space") {
-    document.body.style.backgroundImage =
-        "url('backgrounds/nexa_deep_space.png')";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
-} else {
-    localStorage.setItem("nexaBgPreset", "space");
-
-    document.body.style.backgroundImage =
-        "url('backgrounds/nexa_deep_space.png')";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
-}
 // =========================
 // NEW CHAT
 // =========================
