@@ -466,3 +466,67 @@ body.cosmic-mode header h1 {
             0 0 35px rgba(0, 229, 255, 0.45);
     }
 }
+/* =========================
+   COSMIC PLANET
+========================= */
+
+body.cosmic-mode .app::before {
+    content: "";
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    left: -25px;
+    bottom: 12%;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%,
+            rgba(255,255,255,0.25) 0 4%,
+            transparent 5%),
+        radial-gradient(circle at 65% 55%,
+            rgba(0,0,0,0.25) 0 12%,
+            transparent 13%),
+        radial-gradient(circle,
+            #234c72 0%,
+            #10243d 48%,
+            #050a13 100%);
+    box-shadow:
+        0 0 25px rgba(60, 150, 255, 0.25),
+        inset -15px -10px 25px rgba(0,0,0,0.55);
+    opacity: 0.8;
+    pointer-events: none;
+    animation: planetFloat 9s ease-in-out infinite alternate;
+}
+
+body.cosmic-mode .app::after {
+    content: "";
+    position: fixed;
+    width: 125px;
+    height: 28px;
+    left: -43px;
+    bottom: calc(12% + 30px);
+    border: 2px solid rgba(180, 220, 255, 0.22);
+    border-radius: 50%;
+    transform: rotate(-18deg);
+    pointer-events: none;
+    animation: orbitFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes planetFloat {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-18px) rotate(8deg);
+    }
+}
+
+@keyframes orbitFloat {
+    from {
+        transform: rotate(-18deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-14deg) scale(1.04);
+    }
+}
