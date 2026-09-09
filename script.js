@@ -23,7 +23,7 @@ function askNexa() {
     let answer;
 
     if (q.includes("halo") || q.includes("hai")) {
-        answer = "Halo Wak 🗿🔥 Gue NEXA!";
+       answer = "Halo! 👋 Senang bertemu dengan Anda. Saya NEXA, siap membantu.";
     } else if (q.includes("siapa kamu")) {
         answer = "Gue NEXA, AI Assistant buatan Wak.";
     } else if (q.includes("termux")) {
