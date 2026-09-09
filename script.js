@@ -34,10 +34,10 @@ function askNexa() {
         answer = "Gue belum punya jawaban untuk itu, Wak 🗿";
     }
 
-  setTimeout(() => {
-      hideThinking();
-      addMessage(answer, "nexa");
-  }, 1000);
+    setTimeout(() => {
+        addMessage(answer, "nexa");
+    }, 300);
+}
 
 send.addEventListener("click", askNexa);
 
@@ -182,24 +182,4 @@ if (cosmicButton) {
 
 if (localStorage.getItem("nexaBgPreset") === "cosmic") {
     document.body.classList.add("cosmic-mode");
-}
-// =========================
-// NEXA THINKING INDICATOR
-// =========================
-
-function showThinking() {
-    const message = document.createElement("div");
-    message.className = "message nexa thinking-message";
-    message.id = "thinking";
-    message.textContent = "NEXA sedang berpikir...";
-    chat.appendChild(message);
-    chat.scrollTop = chat.scrollHeight;
-}
-
-function hideThinking() {
-    const thinking = document.getElementById("thinking");
-
-    if (thinking) {
-        thinking.remove();
-    }
 }
