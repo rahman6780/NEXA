@@ -224,16 +224,3 @@ header span {
         padding: 0 15px;
     }
 }
-#imageBtn {
-    border: none;
-    border-radius: 12px;
-    padding: 0 14px;
-    font-size: 18px;
-    cursor: pointer;
-    background: rgba(30, 50, 75, 0.9);
-    color: white;
-}
-
-#imageBtn:hover {
-    opacity: 0.85;
-}
