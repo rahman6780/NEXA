@@ -1,0 +1,629 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, #102a43 0%, #050b14 45%, #020509 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.nexa-container {
+    width: 100%;
+    max-width: 700px;
+    min-height: 520px;
+    background: rgba(8, 15, 25, 0.88);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 24px;
+    box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.08),
+        inset 0 0 30px rgba(0, 229, 255, 0.02);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+}
+
+.nexa-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.nexa-header h1 {
+    font-size: 38px;
+    letter-spacing: 5px;
+    color: #00e5ff;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+}
+
+.nexa-header p {
+    margin-top: 8px;
+    color: #8fa8b8;
+    font-size: 14px;
+}
+
+.chat-box {
+    height: 330px;
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 18px;
+}
+
+.message {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    max-width: 85%;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.nexa-message {
+    background: rgba(0, 229, 255, 0.08);
+    border-left: 3px solid #00e5ff;
+    color: #dffaff;
+}
+
+.user-message {
+    background: rgba(255, 255, 255, 0.08);
+    margin-left: auto;
+    border-right: 3px solid #fff;
+    color: #fff;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#question,
+#input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 18px;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 14px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    font-size: 15px;
+}
+
+#question:focus,
+#input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+}
+
+#question::placeholder,
+#input::placeholder {
+    color: #718896;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 0 22px;
+    background: #00e5ff;
+    color: #001014;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#answer {
+    margin-top: 15px;
+    color: #c9f8ff;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #00e5ff;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .nexa-container {
+        min-height: 95vh;
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .nexa-header h1 {
+        font-size: 30px;
+    }
+
+    .chat-box {
+        height: 55vh;
+    }
+
+    .input-area {
+        gap: 7px;
+    }
+
+    button {
+        padding: 0 17px;
+    }
+}
+/* =========================
+   ABOUT NEXA
+========================= */
+
+.about-btn {
+    display: block;
+    margin: 14px auto 0;
+    padding: 10px 18px;
+    background: rgba(0, 229, 255, 0.08);
+    color: #00e5ff;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.about-btn:hover {
+    background: rgba(0, 229, 255, 0.15);
+}
+
+.about-box {
+    display: none;
+    margin-top: 15px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(5, 15, 25, 0.96);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.12);
+}
+
+.about-box.show {
+    display: block;
+}
+
+.about-box h2 {
+    color: #00e5ff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.about-box p {
+    margin: 8px 0;
+    color: #c9f8ff;
+    font-size: 14px;
+}
+
+.about-box strong {
+    color: #00e5ff;
+}
+
+#closeAbout {
+    margin-top: 12px;
+    padding: 9px 18px;
+}
+
+/* =========================
+   CUSTOM BACKGROUND
+========================= */
+
+#customBox input[type="color"] {
+    width: 100%;
+    height: 45px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+#customBox input[type="file"] {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    color: #c9f8ff;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 10px;
+}
+
+#customBox button {
+    margin: 6px 3px;
+    padding: 10px 15px;
+}
+
+
+/* =========================
+   BACKGROUND PRESETS
+========================= */
+
+.preset-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.preset-btn {
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: 12px;
+    background: rgba(0, 229, 255, 0.08);
+    color: #c9f8ff;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.preset-btn:hover {
+    background: rgba(0, 229, 255, 0.16);
+}
+
+@media (max-width: 400px) {
+    .preset-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   NEXA PREMIUM UI
+========================= */
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 10px 0 22px;
+}
+
+header h1 {
+    font-size: 42px;
+    letter-spacing: 7px;
+    color: #00e5ff;
+    text-shadow:
+        0 0 8px rgba(0, 229, 255, 0.8),
+        0 0 25px rgba(0, 229, 255, 0.35);
+}
+
+header span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    padding: 5px 11px;
+    border-radius: 20px;
+    background: rgba(0, 229, 255, 0.07);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    color: #8fa8b8;
+    font-size: 12px;
+}
+
+header span::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00e5ff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.9);
+    animation: onlinePulse 1.8s infinite;
+}
+
+@keyframes onlinePulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.75);
+    }
+}
+
+.message {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message:hover {
+    transform: translateY(-1px);
+}
+
+.nexa {
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.05);
+}
+
+.input-area {
+    padding: 5px;
+    border-radius: 18px;
+    background: rgba(0, 229, 255, 0.025);
+}
+
+#input {
+    transition: 0.25s ease;
+}
+
+#send {
+    min-width: 80px;
+}
+
+/* Lapisan gelap agar UI tetap terbaca */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 3, 12, 0.32);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Pastikan aplikasi berada di atas background */
+.app {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tombol fitur */
+.about-btn {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Popup */
+.about-box {
+    position: relative;
+    z-index: 3;
+}
+
+/* =========================
+   COSMIC NEBULA
+========================= */
+
+body.cosmic-mode::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: -180px;
+    right: -160px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 229, 255, 0.12) 0%,
+        rgba(80, 50, 180, 0.08) 35%,
+        transparent 70%
+    );
+    filter: blur(25px);
+    animation: nebulaFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaFloat {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(-80px, 60px) scale(1.15);
+    }
+}
+
+/* Cosmic panel */
+
+body.cosmic-mode .app {
+    backdrop-filter: blur(18px);
+}
+
+body.cosmic-mode header h1 {
+    animation: cosmicGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes cosmicGlow {
+    from {
+        text-shadow:
+            0 0 8px rgba(0, 229, 255, 0.7),
+            0 0 20px rgba(0, 229, 255, 0.25);
+    }
+
+    to {
+        text-shadow:
+            0 0 12px rgba(0, 229, 255, 0.95),
+            0 0 35px rgba(0, 229, 255, 0.45);
+    }
+}
+/* =========================
+   COSMIC PLANET
+========================= */
+
+body.cosmic-mode .app::before {
+    content: "";
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    left: -25px;
+    bottom: 12%;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%,
+            rgba(255,255,255,0.25) 0 4%,
+            transparent 5%),
+        radial-gradient(circle at 65% 55%,
+            rgba(0,0,0,0.25) 0 12%,
+            transparent 13%),
+        radial-gradient(circle,
+            #234c72 0%,
+            #10243d 48%,
+            #050a13 100%);
+    box-shadow:
+        0 0 25px rgba(60, 150, 255, 0.25),
+        inset -15px -10px 25px rgba(0,0,0,0.55);
+    opacity: 0.8;
+    pointer-events: none;
+    animation: planetFloat 9s ease-in-out infinite alternate;
+}
+
+body.cosmic-mode .app::after {
+    content: "";
+    position: fixed;
+    width: 125px;
+    height: 28px;
+    left: -43px;
+    bottom: calc(12% + 30px);
+    border: 2px solid rgba(180, 220, 255, 0.22);
+    border-radius: 50%;
+    transform: rotate(-18deg);
+    pointer-events: none;
+    animation: orbitFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes planetFloat {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-18px) rotate(8deg);
+    }
+}
+
+@keyframes orbitFloat {
+    from {
+        transform: rotate(-18deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-14deg) scale(1.04);
+    }
+}
+/* =========================
+   NEXA THINKING
+========================= */
+
+.thinking-message {
+    opacity: 0.75;
+    font-style: italic;
+    animation: thinkingPulse 1.4s ease-in-out infinite;
+}
+
+.thinking-message::after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    text-align: left;
+    animation: thinkingDots 1.4s steps(4, end) infinite;
+}
+
+@keyframes thinkingPulse {
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes thinkingDots {
+    0% {
+        content: "";
+    }
+
+    25% {
+        content: ".";
+    }
+
+    50% {
+        content: "..";
+    }
+
+    75%, 100% {
+        content: "...";
+    }
+}
+/* =========================
+   FIX NEXA BUTTON CLICK
+========================= */
+
+.app,
+.nexa-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Semua kontrol NEXA harus berada di atas efek background */
+.app > *,
+.nexa-container > * {
+    position: relative;
+    z-index: 20;
+}
+
+/* Efek Cosmic tidak boleh menutupi tombol */
+body.cosmic-mode::before,
+body.cosmic-mode::after,
+body.cosmic-mode .app::before,
+body.cosmic-mode .app::after {
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Tombol harus benar-benar menerima sentuhan */
+button,
+input {
+    position: relative;
+    z-index: 30;
+    pointer-events: auto;
+}
+/* =========================
+   NEXA BUTTON FIX
+========================= */
+
+.about-btn,
+.preset-btn,
+#send,
+#closeCustom,
+#closeAbout,
+#resetBg {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.about-box {
+    position: relative;
+    z-index: 30;
+}
+
+.input-area {
+    position: relative;
+    z-index: 20;
+}
+
+body::before,
+body::after,
+body.cosmic-mode::before,
+body.cosmic-mode::after,
+body.cosmic-mode .app::before,
+body.cosmic-mode .app::after {
+    pointer-events: none;
+}
