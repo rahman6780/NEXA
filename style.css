@@ -266,3 +266,12 @@ header span {
         padding: 0 15px;
     }
 }
+
+#chat {
+    flex: 1;
+    min-height: 0;
+}
+#chat {
+    flex: 1;
+    min-height: 55vh;
+}
