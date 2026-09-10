@@ -2,6 +2,9 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url);
 
+        // =========================
+        // NEXA CHAT
+        // =========================
         if (url.pathname === "/api/chat" && request.method === "POST") {
             try {
                 const body = await request.json();
@@ -63,6 +66,68 @@ Aturan percakapan:
             } catch (error) {
                 return Response.json(
                     { error: "NEXA sedang mengalami gangguan." },
+                    { status: 500 }
+                );
+            }
+        }
+
+        // =========================
+        // NEXA VISION
+        // =========================
+        if (url.pathname === "/api/vision" && request.method === "POST") {
+            try {
+                const body = await request.json();
+
+                const question =
+                    body.question?.trim() ||
+                    "Jelaskan gambar ini dengan jelas.";
+
+                const image = body.image;
+
+                if (!image) {
+                    return Response.json(
+                        { error: "Gambar tidak ditemukan." },
+                        { status: 400 }
+                    );
+                }
+
+                const messages = [
+                    {
+                        role: "system",
+                        content:
+                            `Kamu adalah NEXA Vision, bagian visual dari NEXA.
+
+NEXA dibuat dan dikembangkan oleh Rahman.
+
+Tugasmu adalah memahami gambar yang diberikan pengguna dan menjawab pertanyaan tentang gambar tersebut.
+
+Aturan:
+- Jawab dengan jelas dan jujur.
+- Gunakan bahasa pengguna.
+- Jangan mengarang detail yang tidak terlihat.
+- Jika sesuatu tidak dapat dipastikan dari gambar, katakan bahwa kamu tidak dapat memastikannya.
+- Jangan mengaku sebagai manusia.`
+                    },
+                    {
+                        role: "user",
+                        content: question
+                    }
+                ];
+
+                const result = await env.AI.run(
+                    "@cf/meta/llama-3.2-11b-vision-instruct",
+                    {
+                        messages: messages,
+                        image: image
+                    }
+                );
+
+                return Response.json({
+                    answer: result.response
+                });
+            } catch (error) {
+                return Response.json(
+                    { error: "NEXA Vision sedang mengalami gangguan." },
                     { status: 500 }
                 );
             }

@@ -319,3 +319,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadChatHistory();
 });
+// =========================
+// NEXA VISION
+// =========================
+
+const imageBtn = document.getElementById("imageBtn");
+const imageInput = document.getElementById("imageInput");
+
+if (imageBtn && imageInput) {
+    imageBtn.addEventListener("click", () => {
+        imageInput.click();
+    });
+
+    imageInput.addEventListener("change", async () => {
+        const file = imageInput.files[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            alert("Pilih file gambar.");
+            return;
+        }
+
+        addMessage(`📷 ${file.name}`, "user");
+
+        const thinking = document.createElement("div");
+        thinking.className = "message nexa-message thinking-message";
+        thinking.textContent = "NEXA sedang melihat gambar... 👁️";
+        chat.appendChild(thinking);
+
+        try {
+            const base64 = await fileToBase64(file);
+
+            const response = await fetch("/api/vision", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    question: "Jelaskan gambar ini.",
+                    image: base64
+                })
+            });
+
+            const data = await response.json();
+
+            thinking.remove();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Vision gagal.");
+            }
+
+            addMessage(data.answer, "nexa");
+
+        } catch (error) {
+            thinking.remove();
+            addMessage(
+                "Maaf, NEXA gagal membaca gambar tersebut.",
+                "nexa"
+            );
+        }
+
+        imageInput.value = "";
+    });
+}
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            const result = reader.result;
+            const base64 = result.split(",")[1];
+            resolve(base64);
+        };
+
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
