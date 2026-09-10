@@ -1,112 +1,73 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html,
 body {
+    margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 100%;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #020509;
-    color: #ffffff;
-    overflow-x: hidden;
+    color: white;
+    background-color: #020509;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* =========================
-   APP
-   ========================= */
-
 .app {
     width: 100%;
     max-width: 700px;
     min-height: 100vh;
-    margin: 0 auto;
-    padding: 20px 14px 30px;
+    margin: auto;
+    padding: 15px;
     display: flex;
     flex-direction: column;
 }
 
-/* =========================
-   HEADER
-   ========================= */
-
 header {
     text-align: center;
-    padding: 18px 10px;
-    margin-bottom: 12px;
-    background: rgba(5, 10, 20, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(5, 10, 20, 0.9);
     border-radius: 18px;
-    backdrop-filter: blur(12px);
 }
 
 header h1 {
+    margin: 0;
     font-size: 32px;
     letter-spacing: 5px;
-    margin-bottom: 4px;
 }
 
 header span {
+    color: #b8c5d6;
     font-size: 13px;
-    color: #b9c2d0;
 }
-
-/* =========================
-   CHAT
-   ========================= */
 
 #chat {
     flex: 1;
-    min-height: 300px;
-    padding: 10px 2px 20px;
+    padding: 10px 0 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     overflow-y: auto;
-    scroll-behavior: smooth;
 }
-
-/* Scrollbar */
-
-#chat::-webkit-scrollbar {
-    width: 5px;
-}
-
-#chat::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 10px;
-}
-
-/* =========================
-   MESSAGE BUBBLE
-   ========================= */
 
 .message {
     max-width: 82%;
     padding: 11px 14px;
     border-radius: 16px;
-    line-height: 1.5;
     font-size: 15px;
-    word-wrap: break-word;
+    line-height: 1.5;
     white-space: pre-wrap;
-    animation: messageIn 0.2s ease;
+    word-wrap: break-word;
 }
 
 .nexa-message {
     align-self: flex-start;
-    background: rgba(15, 25, 40, 0.92);
-    border: 1px solid rgba(120, 170, 255, 0.18);
-    border-bottom-left-radius: 5px;
-    color: #ffffff;
-}
-
-.user-message {
-    align-self: flex-end;
+    background: rgba(10, 25, 45, 0.94);
+    border-bottom-left-radius: 5px
