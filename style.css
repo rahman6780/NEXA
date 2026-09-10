@@ -129,6 +129,25 @@ header span {
     opacity: 0.5;
 }
 
+#imageBtn {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#imageBtn:hover {
+    background: rgba(20, 45, 70, 0.95);
+}
+
+#imageBtn:active {
+    transform: scale(0.96);
+}
 .about-btn {
     width: 100%;
     margin-top: 8px;
