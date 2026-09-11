@@ -1,83 +1,108 @@
-<main id="chat">
-    <div class="message nexa">
-        Halo! Saya NEXA, AI pribadi yang dibuat dan dikembangkan oleh Rahman.
-        Saya senang bertemu dengan Anda! Bagaimana hari Anda hari ini?
-    </div>
-</main>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<div class="input-area">
-    <input
-        type="text"
-        id="input"
-        placeholder="Tulis pesan..."
-        autocomplete="off"
-    >
+<body>
 
-    <button id="send">
-        Kirim
-    </button>
-</div>
+<div class="app">
 
-<button id="newChatBtn" class="about-btn">
-    🆕 New Chat
-</button>
+    <header>
+        <h1>NEXA</h1>
+        <span>AI PERSONAL ASSISTANT</span>
+    </header>
 
-<button id="bugBtn" class="about-btn">
-    🐛 Lapor Bug
-</button>
+    <main id="chat">
+        <div class="message nexa">
+            Halo! Saya NEXA, AI pribadi yang dibuat dan dikembangkan oleh Rahman.
+            Saya senang bertemu dengan Anda! Bagaimana hari Anda hari ini?
+        </div>
+    </main>
 
-<button id="customBtn" class="about-btn">
-    🎨 Custom Background
-</button>
+    <div class="input-area">
+        <input
+            type="text"
+            id="input"
+            placeholder="Tulis pesan..."
+            autocomplete="off"
+        >
 
-<div id="customBox" class="about-box">
-
-    <h2>🎨 Background</h2>
-    <p>Pilih background NEXA.</p>
-
-    <div class="preset-grid">
-        <button class="preset-btn" data-bg="space">
-            🪐 Deep Space
+        <button id="send">
+            Kirim
         </button>
     </div>
 
-    <input type="color" id="bgColor" value="#020509">
+    <div class="controls">
 
-    <input
-        type="file"
-        id="bgImage"
-        accept="image/*"
-    >
+        <button id="newChatBtn" class="about-btn">
+            🆕 New Chat
+        </button>
 
-    <button id="resetBg">
-        Reset Background
-    </button>
+        <button id="bugBtn" class="about-btn">
+            🐛 Lapor Bug
+        </button>
 
-    <button id="closeCustom">
-        Tutup
-    </button>
+        <button id="customBtn" class="about-btn">
+            🎨 Custom Background
+        </button>
+
+        <button id="aboutBtn" class="about-btn">
+            ⓘ About NEXA
+        </button>
+
+    </div>
+
+    <div id="customBox" class="about-box">
+
+        <h2>🎨 Background</h2>
+        <p>Pilih background NEXA.</p>
+
+        <div class="preset-grid">
+            <button class="preset-btn" data-bg="space">
+                🪐 Deep Space
+            </button>
+        </div>
+
+        <input type="color" id="bgColor" value="#020509">
+
+        <input
+            type="file"
+            id="bgImage"
+            accept="image/*"
+        >
+
+        <button id="resetBg">
+            Reset Background
+        </button>
+
+        <button id="closeCustom">
+            Tutup
+        </button>
+
+    </div>
+
+    <div id="aboutBox" class="about-box">
+
+        <h2>👑 NEXA</h2>
+
+        <p><strong>Owner:</strong> Rahman</p>
+        <p><strong>Developer:</strong> Rahman</p>
+        <p><strong>Project:</strong> NEXA AI Assistant</p>
+        <p><strong>Established:</strong> 2026</p>
+
+        <button id="closeAbout">
+            Tutup
+        </button>
+
+    </div>
 
 </div>
 
-<button id="aboutBtn" class="about-btn">
-    ⓘ About NEXA
-</button>
-
-<div id="aboutBox" class="about-box">
-
-    <h2>👑 NEXA</h2>
-
-    <p><strong>Owner:</strong> Rahman</p>
-    <p><strong>Developer:</strong> Rahman</p>
-    <p><strong>Project:</strong> NEXA AI Assistant</p>
-    <p><strong>Established:</strong> 2026</p>
-
-    <button id="closeAbout">
-        Tutup
-    </button>
-
-</div>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
