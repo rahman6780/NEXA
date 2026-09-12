@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const ownerGreeting = isOwner
         ? "Selamat datang kembali, Rahman. 👑\nNEXA mengenali kamu sebagai pemilik dan pengembangnya. Ada yang ingin kamu lanjutkan hari ini?"
-        : "Halo! 👋 Selamat datang di NEXA.\\nAda yang bisa saya bantu hari ini?";
+        : "Halo! 👋 Selamat datang di NEXA.\nAda yang bisa saya bantu hari ini?";
    const input = document.getElementById("input");
     const send = document.getElementById("send");
     const chat = document.getElementById("chat");
@@ -142,7 +142,8 @@ const welcomeMessage = document.getElementById("welcomeMessage");
 if (welcomeMessage) {
     if (chatHistory.length === 0) {
         welcomeMessage.textContent = ownerGreeting;
-    } else {
+        welcomeMessage.style.whiteSpace = "pre-line"; 
+} else {
         welcomeMessage.remove();
     }
 }
