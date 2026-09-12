@@ -728,3 +728,65 @@ button {
     pointer-events: auto;
     cursor: pointer;
 }
+/* =========================
+   FIX RESPONSIVE TABLET / HP
+========================= */
+
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 170px minmax(0, 1fr);
+    }
+
+    .info-panel {
+        display: none;
+    }
+
+    .sidebar-item {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar-item span {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .workspace {
+        display: block;
+    }
+
+    .sidebar {
+        min-height: auto;
+        margin-bottom: 12px;
+    }
+
+    .sidebar-menu {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .sidebar-item {
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px 4px;
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .sidebar-item span {
+        width: auto;
+        font-size: 16px;
+    }
+
+    .sidebar-owner,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .chat-panel {
+        min-height: calc(100vh - 180px);
+    }
+}
