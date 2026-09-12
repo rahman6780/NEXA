@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const ownerGreeting = isOwner
-        ? "Selamat datang kembali, Rahman. 👑\\nNEXA mengenali kamu sebagai pemilik dan pengembangnya. Ada yang ingin kamu lanjutkan hari ini?"
+        ? "Selamat datang kembali, Rahman. 👑\nNEXA mengenali kamu sebagai pemilik dan pengembangnya. Ada yang ingin kamu lanjutkan hari ini?"
         : "Halo! 👋 Selamat datang di NEXA.\\nAda yang bisa saya bantu hari ini?";
    const input = document.getElementById("input");
     const send = document.getElementById("send");
