@@ -11,50 +11,179 @@
 
 <div class="app">
 
-    <header>
-        <h1>NEXA</h1>
-        <span>AI ASSISTANT</span>
+    <!-- HEADER -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-logo">N</div>
+            <div>
+                <h1>NEXA</h1>
+                <span>AI ASSISTANT</span>
+            </div>
+        </div>
+
+        <div class="topbar-actions">
+            <div class="status">
+                <span class="status-dot"></span>
+                Online
+            </div>
+            <button id="aboutBtn" class="top-about-btn">
+                ⓘ Tentang NEXA
+            </button>
+        </div>
     </header>
 
-    <main id="chat">
-        <div class="message nexa">
-            Halo! Saya NEXA, AI pribadi Rahman.
-            bagaimana kabar anda?       </div>
-    </main>
+    <!-- LAYOUT UTAMA -->
+    <div class="workspace">
 
-    <div class="input-area">
-        <input
-            type="text"
-            id="input"
-            placeholder="Tulis pesan..."
-            autocomplete="off"
-        >
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-        <button id="send">
-            Kirim
-        </button>
+            <div class="sidebar-menu">
+                <div class="sidebar-item active">
+                    <span>▣</span>
+                    Chat
+                </div>
+
+                <button id="newChatBtn" class="sidebar-item">
+                    <span>＋</span>
+                    New Chat
+                </button>
+
+                <button id="bugBtn" class="sidebar-item">
+                    <span>⚙</span>
+                    Lapor Bug
+                </button>
+
+                <button id="customBtn" class="sidebar-item">
+                    <span>⚙</span>
+                    Pengaturan
+                </button>
+            </div>
+
+            <div class="sidebar-owner">
+                <div class="owner-avatar">R</div>
+                <div>
+                    <strong>Dibuat oleh</strong>
+                    <b>Rahman</b>
+                    <small>Developer NEXA</small>
+                </div>
+            </div>
+
+            <p class="sidebar-footer">AI untuk masa depan<br>yang lebih baik.</p>
+
+        </aside>
+
+        <!-- CHAT PANEL -->
+        <main class="chat-panel">
+
+            <div class="chat-heading">
+                <div class="mini-brand">
+                    <div class="mini-logo">N</div>
+                    <div>
+                        <strong>NEXA</strong>
+                        <small>AI ASSISTANT</small>
+                    </div>
+                </div>
+
+                <div class="status small-status">
+                    <span class="status-dot"></span>
+                    Online
+                </div>
+            </div>
+
+            <main id="chat">
+                <div class="message nexa">
+                    Halo! Saya NEXA, AI pribadi Rahman.
+                    bagaimana kabar anda?
+                </div>
+            </main>
+
+            <div class="input-area">
+                <input
+                    type="text"
+                    id="input"
+                    placeholder="Tulis pesan..."
+                    autocomplete="off"
+                >
+
+                <button id="send">
+                    Kirim
+                </button>
+            </div>
+
+        </main>
+
+        <!-- PANEL INFORMASI -->
+        <aside class="info-panel">
+
+            <div class="info-banner">
+                <div class="info-banner-logo">NEXA</div>
+                <span>AI ASSISTANT</span>
+                <p>Satu AI, Banyak Kemungkinan.</p>
+            </div>
+
+            <div class="info-card">
+                <h2>ⓘ &nbsp;Tentang NEXA</h2>
+
+                <p>
+                    NEXA adalah AI Assistant buatan Rahman,
+                    yang dirancang untuk membantu kamu dalam
+                    berbagai hal dengan cara yang mudah,
+                    cepat, dan ramah.
+                </p>
+
+                <div class="info-row">
+                    <span>♙</span>
+                    <div>
+                        <strong>Dibuat oleh</strong>
+                        <b>Rahman</b>
+                        <small>Developer NEXA</small>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <span>⌘</span>
+                    <div>
+                        <strong>Versi</strong>
+                        <b>v2.0.0</b>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <span>☁</span>
+                    <div>
+                        <strong>Teknologi</strong>
+                        <b>Workers AI (Cloudflare)</b>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <span>◇</span>
+                    <div>
+                        <strong>Dilisensikan</strong>
+                        <b>Open Source</b>
+                    </div>
+                </div>
+
+                <div class="quote">
+                    “NEXA bukan sekadar AI,
+                    tapi teman digital yang selalu
+                    ada untukmu.”
+                    <small>— Rahman</small>
+                </div>
+            </div>
+
+            <div class="info-card contact-card">
+                <h2>✉ &nbsp;Kontak & Laporan Bug</h2>
+                <p>Jika menemukan bug atau kendala, silakan lapor melalui email berikut:</p>
+                <div class="email-box">meletes86@gmail.com</div>
+            </div>
+
+        </aside>
+
     </div>
 
-    <div class="controls">
-
-        <button id="newChatBtn" class="about-btn">
-            🆕 New Chat
-        </button>
-
-        <button id="bugBtn" class="about-btn">
-            🐛 Lapor Bug
-        </button>
-
-        <button id="customBtn" class="about-btn">
-            🎨 Custom Background
-        </button>
-
-        <button id="aboutBtn" class="about-btn">
-            ⓘ About NEXA
-        </button>
-
-    </div>
-
+    <!-- CUSTOM BACKGROUND -->
     <div id="customBox" class="about-box">
 
         <h2>🎨 Background</h2>
@@ -66,7 +195,7 @@
             </button>
         </div>
 
-        <input type="color" id="bgColor" value="#020509">
+        <input type="color" id="bgColor" value="#f7f7f7">
 
         <input
             type="file"
@@ -84,6 +213,7 @@
 
     </div>
 
+    <!-- ABOUT BOX LAMA, ID DIPERTAHANKAN -->
     <div id="aboutBox" class="about-box">
 
         <h2>👑 NEXA</h2>
