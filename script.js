@@ -227,20 +227,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // NEXA DEEP SPACE
-    // =========================
+   // NEXA MONOCHROME BACKGROUND
+   // =========================
 
-    const deepSpaceBackground =
-        "url('backgrounds/nexa_deep_space.png')";
+document.body.style.backgroundImage = "none";
+      document.body.style.backgroundColor = "#f7f7f7";
 
-    document.body.style.backgroundImage =
-        deepSpaceBackground;
-
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
-
-    localStorage.setItem("nexaBgPreset", "space");
+      localStorage.setItem("nexaBgPreset", "monochrome");
 
     // =========================
     // NEW CHAT
