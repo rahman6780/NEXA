@@ -4,25 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // NEXA OWNER MODE
     // =========================
 
-    let isOwner = localStorage.getItem("nexaOwnerMode") === "true";
 
-    if (!localStorage.getItem("nexaOwnerMode")) {
-        const answer = confirm(
-            "Apakah kamu Rahman, pemilik dan pengembang NEXA?"
-        );
-
-        if (answer) {
-            localStorage.setItem("nexaOwnerMode", "true");
-            isOwner = true;
-        } else {
-            localStorage.setItem("nexaOwnerMode", "false");
-            isOwner = false;
-        }
-    }
-
-    const ownerGreeting = isOwner
-        ? "Selamat datang kembali, Rahman. 👑\nNEXA mengenali kamu sebagai pemilik dan pengembangnya. Ada yang ingin kamu lanjutkan hari ini?"
-        : "Halo! 👋 Selamat datang di NEXA.\nAda yang bisa saya bantu hari ini?";
+    const ownerGreeting =
+        "Halo! 👋 Selamat datang di NEXA.\nAda yang bisa saya bantu hari ini?";
    const input = document.getElementById("input");
     const send = document.getElementById("send");
     const chat = document.getElementById("chat");
