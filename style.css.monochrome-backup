@@ -1,0 +1,298 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #171717;
+    background: #f7f7f7;
+    font-size: 16px;
+}
+
+.app {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    padding: 18px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+    letter-spacing: 5px;
+    color: #111111;
+}
+
+header span {
+    color: #858585;
+    font-size: 15px;
+}
+
+/* =========================
+   CHAT
+========================= */
+
+#chat {
+    flex: 1;
+    min-height: 55vh;
+    padding: 14px 4px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Semua bubble */
+
+.message {
+    max-width: 85%;
+    padding: 13px 16px;
+    border-radius: 17px;
+    font-size: 16px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    border: 1px solid #e8e8e8;
+}
+
+/* Pesan NEXA - kiri */
+
+.message.nexa {
+    align-self: flex-start;
+    background: #eeeeee;
+    border-color: #e5e5e5;
+    border-bottom-left-radius: 5px;
+    color: #171717;
+}
+
+/* Pesan user - kanan */
+
+.message.user {
+    align-self: flex-end;
+    background: #171717;
+    border-color: #171717;
+    border-bottom-right-radius: 5px;
+    color: #ffffff;
+}
+
+/* NEXA sedang berpikir */
+
+.thinking-message {
+    opacity: 0.65;
+    font-style: italic;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 17px;
+    position: sticky;
+    bottom: 5px;
+    z-index: 100;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+#input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid #e3e3e3;
+    outline: none;
+    border-radius: 12px;
+    background: #f7f7f7;
+    color: #171717;
+    font-size: 16px;
+}
+
+#input:focus {
+    border-color: #999999;
+}
+
+#input::placeholder {
+    color: #999999;
+}
+
+#send {
+    padding: 0 20px;
+    border: none;
+    border-radius: 12px;
+    background: #171717;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#send:hover {
+    background: #333333;
+}
+
+#send:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.about-btn {
+    width: 100%;
+    margin-top: 5px;
+    padding: 14px;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #171717;
+    cursor: pointer;
+    font-size: 15px;
+    position: relative;
+    z-index: 100;
+    transition: 0.2s;
+}
+
+.about-btn:hover {
+    background: #f0f0f0;
+}
+
+.about-btn:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+   ABOUT / CUSTOM BOX
+========================= */
+
+.about-box {
+    display: none;
+    margin-top: 10px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    position: relative;
+    z-index: 200;
+    color: #171717;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.about-box.show {
+    display: block;
+}
+
+.about-box h2 {
+    margin-top: 0;
+    color: #111111;
+}
+
+.about-box p {
+    margin: 8px 0;
+    color: #555555;
+}
+
+/* =========================
+   CUSTOM BUTTONS
+========================= */
+
+.about-box button,
+.preset-btn,
+#resetBg,
+#closeCustom {
+    padding: 10px 14px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    background: #171717;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.about-box button:hover,
+.preset-btn:hover,
+#resetBg:hover,
+#closeCustom:hover {
+    background: #333333;
+}
+
+.preset-grid {
+    margin: 12px 0;
+}
+
+.preset-btn {
+    width: 100%;
+}
+
+#bgColor {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+#bgImage {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+#resetBg,
+#closeCustom {
+    margin-right: 5px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    .app {
+        padding: 8px;
+    }
+
+    .message {
+        max-width: 88%;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    #send {
+        padding: 0 15px;
+    }
+}
