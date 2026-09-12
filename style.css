@@ -719,3 +719,12 @@ button {
         margin-top: 10px;
     }
 }
+
+/* Fix tombol About */
+#aboutBtn,
+.top-about-btn {
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
+    cursor: pointer;
+}
