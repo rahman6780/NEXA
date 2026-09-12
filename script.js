@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = document.createElement("div");
         message.className = `message ${type}`;
         message.textContent = text;
+        message.style.whiteSpace = "pre-line";
 
         chat.appendChild(message);
         chat.scrollTop = chat.scrollHeight;
@@ -271,33 +272,33 @@ document.body.style.backgroundImage = "none";
 
     // =========================
     // NEW CHAT
-    // =========================
+   // ==========================
+const newChatBtn =
+    document.getElementById("newChatBtn");
 
-    const newChatBtn =
-        document.getElementById("newChatBtn");
+if (newChatBtn) {
+    newChatBtn.addEventListener("click", () => {
+        const confirmNewChat = confirm(
+            "Mulai chat baru? Percakapan saat ini akan dihapus."
+        );
 
-    if (newChatBtn) {
-        newChatBtn.addEventListener("click", () => {
-            const confirmNewChat = confirm(
-                "Mulai chat baru? Percakapan saat ini akan dihapus."
-            );
+        if (!confirmNewChat) return;
 
-            if (!confirmNewChat) return;
+        localStorage.removeItem("nexaChatHistory");
 
-            localStorage.removeItem(
-                "nexaChatHistory"
-            );
+        chatHistory = [];
 
-            chatHistory = [];
+        chat.innerHTML = "";
 
-            chat.innerHTML = `
-                <div class="message nexa">
-                    Halo! 👋<br>
-                    Selamat datang di NEXA. Ada yang bisa saya bantu hari ini?
-                </div>
-            `;
-        });
-    }
+        const welcome = document.createElement("div");
+        welcome.className = "message nexa";
+        welcome.id = "welcomeMessage";
+        welcome.textContent = ownerGreeting;
+        welcome.style.whiteSpace = "pre-line";
+
+        chat.appendChild(welcome);
+    });
+}
 
     // =========================
     // LAPOR BUG
