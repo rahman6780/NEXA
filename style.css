@@ -12,19 +12,17 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    color: white;
-    background-color: #020509;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    color: #171717;
+    background: #f7f7f7;
+    font-size: 16px;
 }
 
 .app {
     width: 100%;
-    max-width: 700px;
+    max-width: 760px;
     min-height: 100vh;
     margin: auto;
-    padding: 12px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
 }
@@ -35,22 +33,24 @@ body {
 
 header {
     text-align: center;
-    padding: 14px;
-    margin-bottom: 8px;
-    background: rgba(5, 10, 20, 0.88);
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
+    padding: 18px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 }
 
 header h1 {
     margin: 0;
-    font-size: 30px;
+    font-size: 34px;
     letter-spacing: 5px;
+    color: #111111;
 }
 
 header span {
-    color: #b8c5d6;
-    font-size: 13px;
+    color: #858585;
+    font-size: 15px;
 }
 
 /* =========================
@@ -59,10 +59,11 @@ header span {
 
 #chat {
     flex: 1;
-    padding: 12px 2px 20px;
+    min-height: 55vh;
+    padding: 14px 4px 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -70,31 +71,34 @@ header span {
 /* Semua bubble */
 
 .message {
-    max-width: 82%;
-    padding: 11px 14px;
-    border-radius: 16px;
-    font-size: 15px;
-    line-height: 1.5;
+    max-width: 85%;
+    padding: 13px 16px;
+    border-radius: 17px;
+    font-size: 16px;
+    line-height: 1.55;
     white-space: pre-wrap;
     overflow-wrap: break-word;
+    border: 1px solid #e8e8e8;
 }
 
 /* Pesan NEXA - kiri */
 
 .message.nexa {
     align-self: flex-start;
-    background: rgba(10, 25, 45, 0.94);
+    background: #eeeeee;
+    border-color: #e5e5e5;
     border-bottom-left-radius: 5px;
-    color: white;
+    color: #171717;
 }
 
 /* Pesan user - kanan */
 
 .message.user {
     align-self: flex-end;
-    background: rgba(0, 110, 220, 0.92);
+    background: #171717;
+    border-color: #171717;
     border-bottom-right-radius: 5px;
-    color: white;
+    color: #ffffff;
 }
 
 /* NEXA sedang berpikir */
@@ -110,45 +114,51 @@ header span {
 
 .input-area {
     display: flex;
-    gap: 8px;
-    padding: 8px;
+    gap: 10px;
+    padding: 10px;
     margin-top: 5px;
-    background: rgba(5, 10, 20, 0.95);
-    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 17px;
     position: sticky;
     bottom: 5px;
     z-index: 100;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 }
 
 #input {
     flex: 1;
     min-width: 0;
-    padding: 12px 14px;
-    border: none;
+    padding: 14px 16px;
+    border: 1px solid #e3e3e3;
     outline: none;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 15px;
+    background: #f7f7f7;
+    color: #171717;
+    font-size: 16px;
+}
+
+#input:focus {
+    border-color: #999999;
 }
 
 #input::placeholder {
-    color: #aab4c0;
+    color: #999999;
 }
 
 #send {
-    padding: 0 18px;
+    padding: 0 20px;
     border: none;
     border-radius: 12px;
-    background: #00c8ff;
-    color: #001018;
+    background: #171717;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 #send:hover {
-    opacity: 0.9;
+    background: #333333;
 }
 
 #send:active {
@@ -161,20 +171,21 @@ header span {
 
 .about-btn {
     width: 100%;
-    margin-top: 3px;
-    padding: 11px;
-    border: none;
+    margin-top: 5px;
+    padding: 14px;
+    border: 1px solid #e1e1e1;
     border-radius: 12px;
-    background: rgba(5, 10, 20, 0.92);
-    color: white;
+    background: #ffffff;
+    color: #171717;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     position: relative;
     z-index: 100;
+    transition: 0.2s;
 }
 
 .about-btn:hover {
-    background: rgba(20, 45, 70, 0.95);
+    background: #f0f0f0;
 }
 
 .about-btn:active {
@@ -188,12 +199,14 @@ header span {
 .about-box {
     display: none;
     margin-top: 10px;
-    padding: 18px;
-    background: rgba(3, 10, 20, 0.97);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
     border-radius: 16px;
     position: relative;
     z-index: 200;
+    color: #171717;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 }
 
 .about-box.show {
@@ -202,22 +215,36 @@ header span {
 
 .about-box h2 {
     margin-top: 0;
+    color: #111111;
 }
 
 .about-box p {
     margin: 8px 0;
+    color: #555555;
 }
+
+/* =========================
+   CUSTOM BUTTONS
+========================= */
 
 .about-box button,
 .preset-btn,
 #resetBg,
 #closeCustom {
     padding: 10px 14px;
-    border: none;
+    border: 1px solid #dedede;
     border-radius: 10px;
-    background: #1677ff;
-    color: white;
+    background: #171717;
+    color: #ffffff;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.about-box button:hover,
+.preset-btn:hover,
+#resetBg:hover,
+#closeCustom:hover {
+    background: #333333;
 }
 
 .preset-grid {
@@ -232,12 +259,15 @@ header span {
     width: 100%;
     height: 40px;
     margin: 10px 0;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
 }
 
 #bgImage {
     width: 100%;
     margin-bottom: 10px;
-    color: white;
+    color: #333333;
 }
 
 #resetBg,
@@ -265,78 +295,4 @@ header span {
     #send {
         padding: 0 15px;
     }
-}
-
-#chat {
-    flex: 1;
-    min-height: 0;
-}
-#chat {
-    flex: 1;
-    min-height: 55vh;
-}
-/* =========================
-   NEXA UI SIZE FIX
-========================= */
-
-body {
-    font-size: 16px;
-}
-
-.app {
-    max-width: 760px;
-    padding: 14px;
-}
-
-header {
-    padding: 18px;
-    margin-bottom: 10px;
-}
-
-header h1 {
-    font-size: 34px;
-}
-
-header span {
-    font-size: 15px;
-}
-
-#chat {
-    flex: 1;
-    min-height: 55vh;
-    padding: 14px 4px 20px;
-    gap: 12px;
-}
-
-.message {
-    max-width: 85%;
-    padding: 13px 16px;
-    font-size: 16px;
-    line-height: 1.55;
-}
-
-.input-area {
-    padding: 10px;
-    gap: 10px;
-}
-
-#input {
-    padding: 14px 16px;
-    font-size: 16px;
-}
-
-#send {
-    padding: 0 20px;
-    font-size: 15px;
-}
-
-.about-btn {
-    padding: 14px;
-    margin-top: 5px;
-    font-size: 15px;
-}
-
-.about-box {
-    padding: 20px;
-    font-size: 15px;
 }
