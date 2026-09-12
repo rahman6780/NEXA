@@ -1,5 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("input");
+
+    // =========================
+    // NEXA OWNER MODE
+    // =========================
+
+    let isOwner = localStorage.getItem("nexaOwnerMode") === "true";
+
+    if (!localStorage.getItem("nexaOwnerMode")) {
+        const answer = confirm(
+            "Apakah kamu Rahman, pemilik dan pengembang NEXA?"
+        );
+
+        if (answer) {
+            localStorage.setItem("nexaOwnerMode", "true");
+            isOwner = true;
+        } else {
+            localStorage.setItem("nexaOwnerMode", "false");
+            isOwner = false;
+        }
+    }
+
+    const ownerGreeting = isOwner
+        ? "Selamat datang kembali, Rahman. 👑\\nNEXA mengenali kamu sebagai pemilik dan pengembangnya. Ada yang ingin kamu lanjutkan hari ini?"
+        : "Halo! 👋 Selamat datang di NEXA.\\nAda yang bisa saya bantu hari ini?";
+   const input = document.getElementById("input");
     const send = document.getElementById("send");
     const chat = document.getElementById("chat");
 
@@ -109,10 +133,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =========================
-    // LOAD CHAT
-    // =========================
+// LOAD CHAT
+// =========================
 
-    loadChatHistory();
+const welcomeMessage = document.getElementById("welcomeMessage");
+
+if (welcomeMessage) {
+    if (chatHistory.length === 0) {
+        welcomeMessage.textContent = ownerGreeting;
+    } else {
+        welcomeMessage.remove();
+    }
+}
+
+loadChatHistory();
 
     // =========================
     // ABOUT NEXA
