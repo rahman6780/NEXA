@@ -197,7 +197,42 @@
 
 </div>
 
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInAnonymously,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAhLaj_oS3R8Kf0XvgRnRMjmehLGwmH_DU",
+    authDomain: "nexa-b8a17.firebaseapp.com",
+    projectId: "nexa-b8a17",
+    storageBucket: "nexa-b8a17.firebasestorage.app",
+    messagingSenderId: "673325895936",
+    appId: "1:673325895936:web:e3397dcaaf491ce77363e5",
+    measurementId: "G-GQZDCNWNKN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  window.nexaAuth = {
+    auth: getAuth(app),
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInAnonymously,
+    onAuthStateChanged,
+    signOut
+  };
+</script>
+
 <script src="script.js?v=2"></script>
+    
 
 </body>
 </html>
