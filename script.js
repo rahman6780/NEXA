@@ -320,3 +320,55 @@ if (newChatBtn) {
         });
     }
 });
+/* NEXA FIREBASE LOGIN */
+window.addEventListener("load", () => {
+    const googleBtn = document.getElementById("googleLogin");
+    const guestBtn = document.getElementById("guestLogin");
+    const loginError = document.getElementById("loginError");
+    const loginScreen = document.getElementById("loginScreen");
+
+    if (!window.nexaAuth) {
+        if (loginError) {
+            loginError.textContent =
+                "Firebase belum siap. Muat ulang halaman.";
+        }
+        return;
+    }
+
+    const {
+        auth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        signInAnonymously,
+        onAuthStateChanged
+    } = window.nexaAuth;
+
+    googleBtn?.addEventListener("click", async () => {
+        try {
+            loginError.textContent = "";
+            await signInWithPopup(auth, new GoogleAuthProvider());
+        } catch (error) {
+            loginError.textContent =
+                "Login Google gagal: " + error.message;
+        }
+    });
+
+    guestBtn?.addEventListener("click", async () => {
+        try {
+            loginError.textContent = "";
+            await signInAnonymously(auth);
+        } catch (error) {
+            loginError.textContent =
+                "Login Guest gagal: " + error.message;
+        }
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user && loginScreen) {
+            loginScreen.style.display = "none";
+        } else if (loginScreen) {
+            loginScreen.style.display = "flex";
+        }
+    });
+});
+                        
