@@ -9,29 +9,7 @@
 
 <body>
     
-<div id="loginScreen" class="login-screen">
-  <div class="login-card">
-    <div class="login-logo">✧ NEXA</div>
-
-    <p class="login-label">YOUR SPACE, YOUR IDEAS</p>
-    <h1>Selamat datang di Nexa</h1>
-    <p class="login-description">
-      Masuk dan mulai percakapanmu bersama Nexa.
-    </p>
-
-    <button id="googleLogin" class="login-google">
-      Masuk dengan Google
-    </button>
-
-    <button id="guestLogin" class="login-guest">
-      Masuk sebagai Guest
-    </button>
-
-    <p id="loginError" class="login-error"></p>
-  </div>
-</div>
-    
-<div class="app">
+< class="app">
 
     <!-- HEADER -->
     <header class="topbar">
@@ -197,10 +175,6 @@
 
     </div>
 
-        </button>
-
-    </div>
-
     <!-- ABOUT BOX LAMA, ID DIPERTAHANKAN -->
     <div id="aboutBox" class="about-box">
 
@@ -219,41 +193,7 @@
 
 </div>
 
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-  import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInAnonymously,
-    onAuthStateChanged,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAhLaj_oS3R8Kf0XvgRnRMjmehLGwmH_DU",
-    authDomain: "nexa-b8a17.firebaseapp.com",
-    projectId: "nexa-b8a17",
-    storageBucket: "nexa-b8a17.firebasestorage.app",
-    messagingSenderId: "673325895936",
-    appId: "1:673325895936:web:e3397dcaaf491ce77363e5",
-    measurementId: "G-GQZDCNWNKN"
-  };
-
-  const app = initializeApp(firebaseConfig);
-
-  window.nexaAuth = {
-    auth: getAuth(app),
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInAnonymously,
-    onAuthStateChanged,
-    signOut
-  };
-</script>
-
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
     
 
 </body>
